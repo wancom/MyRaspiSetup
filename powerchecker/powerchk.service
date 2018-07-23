@@ -1,0 +1,11 @@
+[Unit]
+Description=Power Checker
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/powerchk on
+ExecStop=/usr/local/bin/powerchk off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

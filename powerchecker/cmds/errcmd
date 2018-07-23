@@ -1,0 +1,13 @@
+#! /bin/sh
+
+HOSTNAME=`hostname`
+
+sendmail -t << EOF
+from:root
+to:root
+subject:ServerPowerError(${HOSTNAME})
+
+The server "${HOSTNAME}" started but it wasn't shutdown normally last time.
+Please check the system status.
+EOF
+

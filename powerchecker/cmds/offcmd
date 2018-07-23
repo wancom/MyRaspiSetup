@@ -1,0 +1,12 @@
+#! /bin/sh
+
+HOSTNAME=`hostname`
+
+sendmail -t << EOF
+from:root
+to:root
+subject:ServerPowerStatus(${HOSTNAME})
+
+The server "${HOSTNAME}" is going to shutdown.
+EOF
+

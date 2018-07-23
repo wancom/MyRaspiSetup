@@ -1,0 +1,21 @@
+#! /bin/sh
+
+if [ "$1" = "on" ]; then
+  if [ -f /var/lib/powerchk ]; then
+    if [ -f /etc/powerchk/errcmd ]; then
+      /etc/powerchk/errcmd
+    fi
+  else
+    date > /var/lib/powerchk
+    if [ -f /etc/powerchk/oncmd ]; then
+      /etc/powerchk/oncmd
+    fi
+  fi
+elif [ "$1" = "off" ]; then
+  rm /var/lib/powerchk
+  if [ -f /etc/powerchk/offcmd ]; then
+    /etc/powerchk/offcmd
+  fi
+else
+  echo "The program runs with option on / off"
+fi
