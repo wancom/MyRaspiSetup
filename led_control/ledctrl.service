@@ -1,0 +1,10 @@
+[Unit]
+Description=Power LED control
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "echo 4999 > /sys/class/leds/led1/delay_off;echo 1 > /sys/class/leds/led1/delay_on"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
